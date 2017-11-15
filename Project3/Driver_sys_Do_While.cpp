@@ -23,8 +23,25 @@ int main()
 	char vehicle;
 	char ID;
 	
-	cout<<"Enter Number of Drivers for the day"<<endl; 
-	cin>>DriverRequest; 
+	cout << "Enter Number of Drivers for the day." << endl;
+	cin >> DriverRequest;
+
+	if (DriverRequest > 5)
+	{
+		cout<<"Enter a number less than 5. Restarting registration." << endl;
+		main();
+	}
+	if (DriverRequest==0)
+	{
+		cout<<"Enter a number more than 0. Restarting registration." << endl;
+		main();
+
+	}
+	if (DriverRequest < 0)
+	{
+		cout<<"Enter a number less than 5. Restarting registration." << endl;
+		main();
+	}
 
 	do{
 		cout << "Hello, welcome to the shuttle driver registration system.\n"
