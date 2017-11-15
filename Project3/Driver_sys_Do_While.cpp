@@ -1,7 +1,7 @@
-/* Programmer   	: Sean Wong
- * File Name   		: Driver_sys_Do_While.cpp
- * Course     		: Computational Problem Solving II - CPET
- * Date Created 	: 11/8/2017
+/* ProgrammerÂ Â Â 	: Sean Wong
+Â * File NameÂ Â Â 		: Driver_sys_Do_While.cpp
+Â * Course Â Â Â Â 		: Computational Problem Solving II - CPET
+Â * Date CreatedÂ 	: 11/8/2017
 */
 
 #include <iostream>
@@ -18,6 +18,8 @@ int main()
 	int startTime;
 	int endTime;
 	int DriverNum=0;
+	char vehicle;
+	char ID;
 
 	do{
 		cout << "Hello, welcome to the shuttle driver registration system.\n"
@@ -115,11 +117,65 @@ int main()
 			main();
 		}
 
-		cout << "\nWelcome " << Name << "!\n"
-			 << "You will be working from " << startTime << " to " << endTime << ".\n"
-			 << "Starting a new registration.\n" << endl;
+		cout << "Please input the type of vehicle you would like to use.\n"
+			 << "Input 'm' or 'M' for the Motorcycle.\n"
+			 << "Input 'c' or 'C' for the Car.\n"
+			 << "Input 'v' or 'V' for the Van.\n" << endl;
+		cin >> vehicle;
+
+		switch(vehicle)
+		{
+			case ('m'):
+			case ('M'):
+				cout << "You chose to use the Motorcycle. " << endl;
+			break;
+
+			case ('c'):
+			case ('C'):
+				cout << "You chose to use the Car. " << endl;
+			break;
+
+			case ('v'):
+			case ('V'):
+			cout << "You chose to use the Van. " << endl;
+			break;
+
+			default:
+				cout << "You have chosen a vehicle that is not suitable. Restarting registration.\n" << endl;
+				main();
+		}
+
+		switch(DriverNum)
+		{
+			case 0:
+				ID = 'A';
+			break;
+
+			case 1:
+				ID = 'B';
+			break;
+
+			case 2:
+				ID = 'C';
+			break;
+
+			case 3:
+				ID = 'D';
+			break;
+
+			case 4:
+				ID = 'E';
+			break;
+		}
+		cout << ID;
 
 		DriverNum++;
+
+		cout << "\nWelcome " << Name << "!\n"
+			 << "You will be working from " << startTime << " to " << endTime << ".\n"
+			 << "The vehicle you chose to use is the " << vehicle << ".\n"
+			 << "Your ID for the day is " << ID << ".\n"
+			 << "Starting a new registration.\n" << endl;
 
 	} while(DriverNum!=5);
 
