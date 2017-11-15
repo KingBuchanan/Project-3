@@ -1,3 +1,4 @@
+
 /* Programmer   	: Sean Wong
  * File Name   		: Driver_sys_Do_While.cpp
  * Course     		: Computational Problem Solving II - CPET
@@ -11,6 +12,7 @@ using namespace std;
 int main()
 {
 	string Name;
+	int DriverRequest; 
 	int startHour;
 	int startMin;
 	int endHour;
@@ -20,6 +22,9 @@ int main()
 	int DriverNum=0;
 	char vehicle;
 	char ID;
+	
+	cout<<"Enter Number of Drivers for the day"<<endl; 
+	cin>>DriverRequest; 
 
 	do{
 		cout << "Hello, welcome to the shuttle driver registration system.\n"
@@ -110,7 +115,6 @@ int main()
 		}
 
 		endTime = endHour + endMin;
-
 		if (endTime > 1700)
 		{
 			cout << "\nThe time you entered for when you want to stop working is not suitable. Restarting registration.\n " << endl;
@@ -122,7 +126,6 @@ int main()
 			 << "Input 'c' or 'C' for the Car.\n"
 			 << "Input 'v' or 'V' for the Van.\n" << endl;
 		cin >> vehicle;
-
 		switch(vehicle)
 		{
 			case ('m'):
@@ -177,7 +180,7 @@ int main()
 			 << "Your ID for the day is " << ID << ".\n"
 			 << "Starting a new registration.\n" << endl;
 
-	} while(DriverNum!=5);
+	} while(DriverNum!=DriverRequest);
 
 	return 0;
 }
