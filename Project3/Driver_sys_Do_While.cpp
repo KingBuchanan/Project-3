@@ -7,10 +7,18 @@
 
 #include <iostream>
 #include <string>
+#include "Reservation.h"
 using namespace std;
 
 int main()
 {
+	struct Driver{
+		string DName;
+		int startDriver;
+		int endDriver;
+		char DriverVehicle;
+		char ID;
+	};
 	string Name;
 	int DriverRequest; 
 	int startHour;
@@ -22,7 +30,7 @@ int main()
 	int DriverNum=0;
 	char vehicle;
 	char ID;
-	
+	Driver A,B,C,D,E;
 	cout << "Enter Number of Drivers for the day." << endl;
 	cin >> DriverRequest;
 
@@ -166,38 +174,66 @@ int main()
 		}
 
 		switch(DriverNum)
-		{
-			case 0:
-				ID = 'A';
-			break;
+				{
+					case 0:
+						ID = 'A';
+						A.DName=Name;
+						A.DriverVehicle=vehicle;
+						A.startDriver=startTime;
+						A.endDriver=endTime;
+						A.ID=ID;
+						reserve(A.DriverVehicle);
+					break;
 
-			case 1:
-				ID = 'B';
-			break;
+					case 1:
+						ID = 'B';
+						B.DName=Name;
+						B.DriverVehicle=vehicle;
+						B.startDriver=startTime;
+						B.endDriver=endTime;
+						B.ID=ID;
+						reserve(B.DriverVehicle);
+					break;
 
-			case 2:
-				ID = 'C';
-			break;
+					case 2:
+						ID = 'C';
+						C.DName=Name;
+						C.DriverVehicle=vehicle;
+						C.startDriver=startTime;
+						C.endDriver=endTime;
+						C.ID=ID;
+						reserve(C.DriverVehicle);
+					break;
 
-			case 3:
-				ID = 'D';
-			break;
+					case 3:
+						ID = 'D';
+						D.DName=Name;
+						D.DriverVehicle=vehicle;
+						D.startDriver=startTime;
+						D.endDriver=endTime;
+						D.ID=ID;
+						reserve(D.DriverVehicle);
+					break;
 
-			case 4:
-				ID = 'E';
-			break;
-		}
-		cout << ID;
-
-		DriverNum++;
-
-		cout << "\nWelcome " << Name << "!\n"
-			 << "You will be working from " << startTime << " to " << endTime << ".\n"
-			 << "The vehicle you chose to use is the " << vehicle << ".\n"
-			 << "Your ID for the day is " << ID << ".\n"
-			 << "Starting a new registration.\n" << endl;
-
+					case 4:
+						ID = 'E';
+						E.DName=Name;
+						E.DriverVehicle=vehicle;
+						E.startDriver=startTime;
+						E.endDriver=endTime;
+						E.ID=ID;
+						reserve(E.DriverVehicle);
+					break;
+				}
+				cout << ID;
+				cout << "\nWelcome " << Name << "!\n"
+							 << "You will be working from " << startTime << " to " << endTime << ".\n"
+							 << "The vehicle you chose to use is the " << vehicle << ".\n"
+							 << "Your ID for the day is " << ID << ".\n"
+							 << "Starting a new registration.\n" << endl;
+				DriverNum++;
 	} while(DriverNum!=DriverRequest);
+
 
 	return 0;
 }
