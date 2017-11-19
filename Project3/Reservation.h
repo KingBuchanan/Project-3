@@ -3,24 +3,24 @@
  * Course     		: Computational Problem Solving II - CPET
  * Date Created 	: 11/8/2017
 */
-#ifndef Reserve
-#define Reserve
+#ifndef Display
+#define Display
 #include <string>
 #include <iostream>
 using namespace std;
 
-int reserve(char vehicle)
+int display(char vehicle)
 {
 	bool SeatTaken;
 
-	int max_value;
+	int max_value=0;
 string schedule[2][19]=
 {
 {" ","  800","  830","  900","  930","1000","1030","1100","1130","1200","1300","1330","1400","1430","1500","1530","1600","1630","1700"},
 {" "," x"," x"," x"," x"," x","x","x","x","x","x","x","x","x","x","x","x","x","x"}};
 
 const int times[18]={800,830,900,930,1000,1030,1100,1130,1200,1300,1330,1400,1430,1500,1530,1600,1630,1700};
-int availability[19]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+int availability[19]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
 switch(vehicle){
 case 'm':
@@ -39,16 +39,9 @@ case 'v':
 	break;
 }
 
- for (int i=0;i<18;i++)
- {
-	 if (availability[i]==0){
-		 SeatTaken=true;
-	 }
-	 else
-		 SeatTaken=false;
 
 
- }
+
 
  for(int j=0;j<18;j++)
  {
@@ -62,8 +55,14 @@ case 'v':
  };
 
 // };
-
+return max_value;
  };
+
+int* Set(){
+	static int availability[19]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+	return availability;
+};
 #endif
 
 
