@@ -1,12 +1,13 @@
-/* Programmer   	: Hakeem Buchanan
- * File Name   		:Reservation_Display
- * Course     		: Computational Problem Solving II - CPET
- * Date Created 	: 11/8/2017
+/* ProgrammerÂ Â Â 	: Hakeem Buchanan
+Â * File NameÂ Â Â 		:Reservation_Display
+Â * Course Â Â Â Â 		: Computational Problem Solving II - CPET
+Â * Date CreatedÂ 	: 11/8/2017
 */
-#include <string>
-#include <iostream>
+
 #ifndef Dispatch
 #define Dispatch
+#include <string>
+#include <iostream>
 using namespace std;
 const int times[18]={800,830,900,930,1000,1030,1100,1130,1200,1300,1330,1400,1430,1500,1530,1600,1630,1700};
 int customer_position;
@@ -225,25 +226,105 @@ int create(){
 
 
 	}
+
 int display()
 {
-;
-string schedule[2][19]=
-{
-{" ","  800","  830","  900","  930","1000","1030","1100","1130","1200","1300","1330","1400","1430","1500","1530","1600","1630","1700"},
-{" "," x"," x"," x"," x"," x","x","x","x","x","x","x","x","x","x","x","x","x","x"}};
+	int DriverNum=0;
+	int DriverRequest;
 
+	do{
+	switch(DriverNum)
+	{
+		case 0:
+			cout << "\n\nID      : " << A.ID << endl;
+			cout << "Name    : " << A.DName << endl;
+			cout << "Vehicle : " << A.DriverVehicle << endl;
+			for(int j=0;j<18;j++)
+			{
+				cout<<"\n  "<<times[j]<<":";
 
- for(int j=0;j<18;j++)
- {
-	 cout<<"\n  "<<times[j]<<":";
+				if ((j>=A.start_position)&& j<A.end_position )
+				{
+					cout<<"   "<<A.availability[j];
+				}
+				else
+					cout<<"   " << 'X';
+			};
+		break;
 
-// for (int h =0;h<18;h++){
+		case 1:
+			cout << "\n\nID      : " << B.ID << endl;
+			cout << "Name    : " << B.DName << endl;
+			cout << "Vehicle : " << B.DriverVehicle << endl;
+			for(int j=0;j<18;j++)
+			{
+				cout<<"\n  "<<times[j]<<":";
 
-	 cout<<"   "<<A.availability[j];
-};
+				if ((j>=B.start_position)&& j<B.end_position )
+				{
+					cout<<"   "<<B.availability[j];
+				}
+				else
+					cout<<"   "<<'X';
+			};
+		break;
 
-// };
-return 0;
- };
+		case 2:
+			cout << "\n\nID      : " << C.ID << endl;
+			cout << "Name    : " << C.DName << endl;
+			cout << "Vehicle : " << C.DriverVehicle << endl;
+			for(int j=0;j<18;j++)
+			{
+				cout<<"\n  "<<times[j]<<":";
+
+				if ((j>=C.start_position)&& j<C.end_position )
+				{
+					cout<<"   "<<C.availability[j];
+				}
+				else
+					cout<<"   "<<'X';
+			};
+		break;
+
+		case 3:
+			cout << "\n\nID      : " << D.ID << endl;
+			cout << "Name    : " << D.DName << endl;
+			cout << "Vehicle : " << D.DriverVehicle << endl;
+			for(int j=0;j<18;j++)
+			{
+				cout<<"\n  "<<times[j]<<":";
+
+				if ((j>=D.start_position)&& j<D.end_position )
+				{
+					cout<<"   "<<D.availability[j];
+				}
+				else
+					cout<<"   "<<'X';
+			};
+		break;
+
+		case 4:
+			cout << "\n\nID      : " << E.ID << endl;
+			cout << "Name    : " << E.DName << endl;
+			cout << "Vehicle : " << E.DriverVehicle << endl;
+			for(int j=0;j<18;j++)
+			{
+				cout<<"\n  "<<times[j]<<":";
+
+				if ((j>=E.start_position)&& j<E.end_position )
+				{
+					cout<<"   "<<E.availability[j];
+				}
+				else
+					cout<<"   "<<'X';
+			};
+		break;
+	}
+
+	DriverNum++;
+
+	}while(DriverNum!=DriverRequest);
+
+	return 0;
+}
 #endif
