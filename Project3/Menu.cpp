@@ -11,11 +11,14 @@
 #include "Driver_sys.h"
 using namespace std;
 
+
+
 int main(){
 	int Menu_Options;
 	char Reserve_Code;
-
-    Driver_SYS();
+	bool Quit=false;
+   Driver_SYS();
+   do {
 	cout<<"Hello Dispatch Officer, Please input the function you would like to perform from the menu list."<<endl;
 	cout<<"\nMain Menu\n";
 	cout<<"1- Create Reservation\n";
@@ -24,6 +27,7 @@ int main(){
 	cout<<"4- Display All Time-Slots\n";
 	cout<<"5- Quit application\n";
 	cin>>Menu_Options;
+
 
 
 	switch(Menu_Options){
@@ -35,7 +39,7 @@ int main(){
 		cin>>Reserve_Code;
 		if(Reserve_Code=='n'||Reserve_Code=='N'){
 			cout<<"Please get a Reserve Code before continuing."<<endl;
-			main();
+
 		}
 
 		break;
@@ -44,16 +48,18 @@ int main(){
 		cin>>Reserve_Code;
 		if(Reserve_Code=='n'||Reserve_Code=='N'){
 					cout<<"Please get a Reserve Code before continuing."<<endl;
-					main();
 				}
 		break;
 	case 4:
+		display();
 		break;
 	case 5:
+		cout<<"Thank you goodbye."<<endl;
+		Quit=true;
 		break;
 
 	}
-
+}while(Quit==false);
 
 
 return 0;
