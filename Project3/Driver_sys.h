@@ -370,7 +370,7 @@ int Driver_SYS()
 			{
 				cout<<"\n  "<<times[j]<<":";
 
-				if ((A.availability[j]>=A.availability[A.start_position])&&(A.availability[j]<=A.availability[A.end_position]) ){
+				if ((j>=A.start_position)&& j<A.end_position ){
 
 					cout<<"   "<<A.availability[j];
 				}
@@ -381,46 +381,58 @@ int Driver_SYS()
 
 		case 1:
 			for(int j=0;j<18;j++)
-			{
-				cout<<"\n  "<<times[j]<<":";
+						{
+							cout<<"\n  "<<times[j]<<":";
 
-				// for (int h =0;h<18;h++){
+							if ((j>=B.start_position)&& j<B.end_position ){
 
-				cout<<"   "<<B.availability[j];
-			};
+								cout<<"   "<<B.availability[j];
+							}
+							else
+								cout<<"   "<<'X';
+						};
 			break;
 
 		case 2:
 			for(int j=0;j<18;j++)
-			{
-				cout<<"\n  "<<times[j]<<":";
+						{
+							cout<<"\n  "<<times[j]<<":";
 
-				// for (int h =0;h<18;h++){
+							if ((j>=C.start_position)&& j<C.end_position ){
 
-				cout<<"   "<<C.availability[j];
-			};
+								cout<<"   "<<C.availability[j];
+							}
+							else
+								cout<<"   "<<'X';
+						};
 			break;
 
 		case 3:
 			for(int j=0;j<18;j++)
-			{
-				cout<<"\n  "<<times[j]<<":";
+						{
+							cout<<"\n  "<<times[j]<<":";
 
-				// for (int h =0;h<18;h++){
+							if ((j>=D.start_position)&& j<D.end_position ){
 
-				cout<<"   "<<D.availability[j];
-			};
+								cout<<"   "<<D.availability[j];
+							}
+							else
+								cout<<"   "<<'X';
+						};
 			break;
 
 		case 4:
 			for(int j=0;j<18;j++)
-			{
-				cout<<"\n  "<<times[j]<<":";
+						{
+							cout<<"\n  "<<times[j]<<":";
 
-				// for (int h =0;h<18;h++){
+							if ((j>=E.start_position)&& j<E.end_position ){
 
-				cout<<"   "<<E.availability[j];
-			};
+								cout<<"   "<<E.availability[j];
+							}
+							else
+								cout<<"   "<<'X';
+						};
 			break;
 		}
 		cout << "\nWelcome " << Name << "!\n"
