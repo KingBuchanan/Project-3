@@ -8,15 +8,16 @@
 #ifndef Dispatch
 #define Dispatch
 using namespace std;
+const int times[18]={800,830,900,930,1000,1030,1100,1130,1200,1300,1330,1400,1430,1500,1530,1600,1630,1700};
 struct Driver{
 		string DName;
 		int startDriver;
 		int endDriver;
 		char DriverVehicle;
 		char ID;
-		int *available[19];
-		int position;
-		int max_value_ptr=*available[19];
+		int availability[19]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+		int start_position;
+		int end_position;
 		int max_value;
 		int reservationNum;
 	};
@@ -66,53 +67,6 @@ int create(){
 						}
 
 						startTime = startHour + startMin; // Time starting (hour and 30 minute block)
-
-//						cout << "Enter the ending hour.\n"<< "i.e. 10:00am  for 1000 and 4pm for 1600: " << endl;
-//
-//						cin >> endHour;
-//
-//						if (endHour < startTime)
-//						{
-//							cout << "\nThis is not a suitable time. Restarting.........\n" << endl;
-//							create();
-//						}
-//						else if (endHour < 800)
-//						{
-//							cout << "\nThis is not a suitable time. Restarting.........\n" << endl;
-//							create();
-//						}
-//						else if ((endHour%10) != 0) // prevents user from inputting values not on the hour
-//						{
-//							cout << "\nThis is not a suitable time. Restarting.........\n" << endl;
-//							create();
-//						}
-//						else if (endHour > 1700)
-//						{
-//							cout << "\nThis is not a suitable time. Restarting.........\n" << endl;
-//							create();
-//						}
-//
-//						cout << "Enter the minutes.\n"
-//							 << "i.e. 00 for at the hour and 30 for at that half-hour block: " << endl;
-//						cin >> endMin;
-//						cout <<"End minutes are: " <<endMin << endl;
-//
-//						if (endMin != 00)
-//						{
-//							if (endMin!=30)
-//							{
-//								cout << "\nThis is not a suitable time to work. Restarting.........\n" << endl;
-//								create();
-//							}
-//						}
-//
-//						endTime = endHour + endMin;
-//
-//						if (endTime > 1700)
-//						{
-//							cout << "\nThe time you entered is not suitable. Restarting.........\n" << endl;
-//							create();
-//						}
 						cout << "Please input the type of vehicle you would like to use.\n"
 									 << "Input 'm' or 'M' for the Motorcycle.\n"
 									 << "Input 'c' or 'C' for the Car.\n"
@@ -200,82 +154,98 @@ int create(){
 									position=18;
 									break;
 								};
-								A.position=position;
-								B.position=position;
-								C.position=position;
-								D.position=position;
-								E.position=position;
-//								A.max_value_ptr=A.available[A.position];
-//								B.max_value_ptr=B.available[B.position];
-//								B.max_value_ptr=B.available[B.position];
-//								C.max_value_ptr=C.available[C.position];
-//								D.max_value_ptr=D.available[D.position];
-                   if (A.DriverVehicle==Vehicle){
-					if((startTime>=A.startDriver)&&(startTime<=A.endDriver)){
-						if(A.max_value_ptr!=A.max_value){
-						A.available[position]++;
-						A.reservationNum++;
-						cout<<"Space Reserved. See display. "<<endl;
-						}
-						else
-							cout<<"Space Unavailable."<<endl;
-					}
-					else
-						cout<<"Space Unavailable."<<endl;
-                   }
-                   if (B.DriverVehicle==Vehicle){
-                   					if((startTime>=B.startDriver)&&(startTime<=B.endDriver)){
-                   						if(B.max_value_ptr!=B.max_value){
-                   						B.available[position]++;
-                   						cout<<"Space Reserved. See display."<<endl;
-                   						}
-                   						else
-                   							cout<<"Space Unavailable."<<endl;
-                   					}
-                   					else
-                   						cout<<"Space Unavailable."<<endl;
-                                      }
-                   if (C.DriverVehicle==Vehicle){
-                   					if((startTime>=C.startDriver)&&(startTime<=C.endDriver)){
-                   						if(C.max_value_ptr!=C.max_value){
-                   						C.available[position]++;
-                   						cout<<"Space Reserved. See display."<<endl;
-                   						}
-                   						else
-                   							cout<<"Space Unavailable."<<endl;
-                   					}
-                   					else
-                   						cout<<"Space Unavailable."<<endl;
-                                      }
-                   if (D.DriverVehicle==Vehicle){
-                   					if((startTime>=D.startDriver)&&(startTime<=D.endDriver)){
-                   						if(D.max_value_ptr!=D.max_value){
-                   						D.available[position]++;
-                   						cout<<"Space Reserved. See display."<<endl;
-                   						}
-                   						else
-                   							cout<<"Space Unavailable."<<endl;
-                   					}
-                   					else
-                   						cout<<"Space Unavailable."<<endl;
-                                      }
-                   if (E.DriverVehicle==Vehicle){
-                   					if((startTime>=E.startDriver)&&(startTime<=E.endDriver)){
-                   						if(E.max_value_ptr!=E.max_value){
-                   						E.available[position]++;
-                   						cout<<"Space Reserved. See display."<<endl;
-                   						}
-                   						else
-                   							cout<<"Space Unavailable."<<endl;
-                   					}
-                   					else
-                   						cout<<"Space Unavailable."<<endl;
-                                      }
+//								A.position=position;
+//								B.position=position;
+//								C.position=position;
+//								D.position=position;
+//								E.position=position;
+
+//                   if (A.DriverVehicle==Vehicle){
+//					if((startTime>=A.startDriver)&&(startTime<=A.endDriver)){
+//						if(A.max_value_ptr!=A.max_value){
+//						A.available[position]++;
+//						A.reservationNum++;
+//						cout<<"Space Reserved. See display. "<<endl;
+//						}
+//						else
+//							cout<<"Space Unavailable."<<endl;
+//					}
+//					else
+//						cout<<"Space Unavailable."<<endl;
+//                   }
+//                   if (B.DriverVehicle==Vehicle){
+//                   					if((startTime>=B.startDriver)&&(startTime<=B.endDriver)){
+//                   						if(B.max_value_ptr!=B.max_value){
+//                   						B.available[position]++;
+//                   						cout<<"Space Reserved. See display."<<endl;
+//                   						}
+//                   						else
+//                   							cout<<"Space Unavailable."<<endl;
+//                   					}
+//                   					else
+//                   						cout<<"Space Unavailable."<<endl;
+//                                      }
+//                   if (C.DriverVehicle==Vehicle){
+//                   					if((startTime>=C.startDriver)&&(startTime<=C.endDriver)){
+//                   						if(C.max_value_ptr!=C.max_value){
+//                   						C.available[position]++;
+//                   						cout<<"Space Reserved. See display."<<endl;
+//                   						}
+//                   						else
+//                   							cout<<"Space Unavailable."<<endl;
+//                   					}
+//                   					else
+//                   						cout<<"Space Unavailable."<<endl;
+//                                      }
+//                   if (D.DriverVehicle==Vehicle){
+//                   					if((startTime>=D.startDriver)&&(startTime<=D.endDriver)){
+//                   						if(D.max_value_ptr!=D.max_value){
+//                   						D.available[position]++;
+//                   						cout<<"Space Reserved. See display."<<endl;
+//                   						}
+//                   						else
+//                   							cout<<"Space Unavailable."<<endl;
+//                   					}
+//                   					else
+//                   						cout<<"Space Unavailable."<<endl;
+//                                      }
+//                   if (E.DriverVehicle==Vehicle){
+//                   					if((startTime>=E.startDriver)&&(startTime<=E.endDriver)){
+//                   						if(E.max_value_ptr!=E.max_value){
+//                   						E.available[position]++;
+//                   						cout<<"Space Reserved. See display."<<endl;
+//                   						}
+//                   						else
+//                   							cout<<"Space Unavailable."<<endl;
+//                   					}
+//                   					else
+//                   						cout<<"Space Unavailable."<<endl;
+//                                      }
 
 	return 0;
 
 
 
 	}
+int display()
+{
+;
+string schedule[2][19]=
+{
+{" ","  800","  830","  900","  930","1000","1030","1100","1130","1200","1300","1330","1400","1430","1500","1530","1600","1630","1700"},
+{" "," x"," x"," x"," x"," x","x","x","x","x","x","x","x","x","x","x","x","x","x"}};
 
+
+ for(int j=0;j<18;j++)
+ {
+	 cout<<"\n  "<<times[j]<<":";
+
+// for (int h =0;h<18;h++){
+
+	 cout<<"   "<<A.availability[j];
+};
+
+// };
+return 0;
+ };
 #endif

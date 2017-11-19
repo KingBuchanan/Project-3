@@ -21,8 +21,8 @@ int main(){
 	cout<<"1- Create Reservation\n";
 	cout<<"2- Delete Reservation(Must have Reservation Code)\n";
 	cout<<"3- Search for Reservation(Must haver Reservation Code)\n ";
-	cout<<"4  Display All Time-Slots";
-	cout<<"5- Quit application";
+	cout<<"4- Display All Time-Slots\n";
+	cout<<"5- Quit application\n";
 	cin>>Menu_Options;
 
 
