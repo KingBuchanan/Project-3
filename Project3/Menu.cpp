@@ -19,13 +19,13 @@ int main(){
 	bool Quit=false;
    Driver_SYS();
    do {
-	cout<<"Hello Dispatch Officer, Please input the function you would like to perform from the menu list."<<endl;
+	cout<<"\nHello Dispatch Officer, Please input the function you would like to perform from the menu list."<<endl;
 	cout<<"\nMain Menu\n";
 	cout<<"1- Create Reservation\n";
 	cout<<"2- Delete Reservation(Must have Reservation Code)\n";
 	cout<<"3- Search for Reservation(Must haver Reservation Code)\n ";
 	cout<<"4- Display All Time-Slots\n";
-	cout<<"5- Quit application\n";
+	cout<<"5- Summary of all driver information and then quit the application\n";
 	cin>>Menu_Options;
 
 
@@ -35,7 +35,7 @@ int main(){
 		create();
 		break;
 	case 2:
-		cout<<"Do you have a Reservation Code? Y/N?\n";
+		cout<<"\nDo you have a Reservation Code? Y/N?\n";
 		cin>>Reserve_Code;
 		if(Reserve_Code=='n'||Reserve_Code=='N'){
 			cout<<"Please get a Reserve Code before continuing."<<endl;
@@ -44,7 +44,7 @@ int main(){
 
 		break;
 	case 3:
-		cout<<"Do you have a Reservation Code? Y/N?\n";
+		cout<<"\nDo you have a Reservation Code? Y/N?\n";
 		cin>>Reserve_Code;
 		if(Reserve_Code=='n'||Reserve_Code=='N'){
 					cout<<"Please get a Reserve Code before continuing."<<endl;
@@ -54,7 +54,9 @@ int main(){
 		display();
 		break;
 	case 5:
-		cout<<"Thank you goodbye."<<endl;
+		cout << "\nThis is a summary of all the drivers information. ";
+		display();
+		cout<<"\n\nThank you goodbye."<<endl;
 		Quit=true;
 		break;
 
