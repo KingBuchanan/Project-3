@@ -11,7 +11,7 @@ using namespace std;
 
 int display(char vehicle)
 {
-	bool SeatTaken;
+
 
 	int max_value=0;
 string schedule[2][19]=
