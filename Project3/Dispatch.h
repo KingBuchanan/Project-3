@@ -1,7 +1,7 @@
-/* Programmer   	: Hakeem Buchanan
- * File Name   		:Reservation_Display
- * Course     		: Computational Problem Solving II - CPET
- * Date Created 	: 11/8/2017
+/* ProgrammerÂ Â Â 	: Hakeem Buchanan
+Â * File NameÂ Â Â 		:Reservation_Display
+Â * Course Â Â Â Â 		: Computational Problem Solving II - CPET
+Â * Date CreatedÂ 	: 11/8/2017
  */
 #include <string>
 #include <iostream>
@@ -28,10 +28,7 @@ int create(){
 	char Vehicle;
 	int startHour;
 	int startMin;
-	//		int endHour;
-	//		int endMin;
 	int startTime;
-	//		int endTime;
 	int position;
 
 	cout<<"Hello Dispatch Officer, welcome to Reserve 3.9\n Please enter the start and end time for the time slot requested."<<endl;
@@ -235,7 +232,7 @@ int display()
 	do{
 	switch(DriverNum)
 	{
-		case 0:
+		case 0: // Outputs Driver info for first driver
 			cout << "\n\nID      : " << A.ID << endl;
 			cout << "Name    : " << A.DName << endl;
 			cout << "Vehicle : " << A.DriverVehicle << endl;
@@ -252,7 +249,7 @@ int display()
 			};
 		break;
 
-		case 1:
+		case 1: // Outputs Driver info for second driver
 			cout << "\n\nID      : " << B.ID << endl;
 			cout << "Name    : " << B.DName << endl;
 			cout << "Vehicle : " << B.DriverVehicle << endl;
@@ -269,7 +266,7 @@ int display()
 			};
 		break;
 
-		case 2:
+		case 2: // Outputs Driver info for third driver
 			cout << "\n\nID      : " << C.ID << endl;
 			cout << "Name    : " << C.DName << endl;
 			cout << "Vehicle : " << C.DriverVehicle << endl;
@@ -286,7 +283,7 @@ int display()
 			};
 		break;
 
-		case 3:
+		case 3: // Outputs Driver info for fourth driver
 			cout << "\n\nID      : " << D.ID << endl;
 			cout << "Name    : " << D.DName << endl;
 			cout << "Vehicle : " << D.DriverVehicle << endl;
@@ -303,7 +300,7 @@ int display()
 			};
 		break;
 
-		case 4:
+		case 4: // Outputs Driver info for fifth driver
 			cout << "\n\nID      : " << E.ID << endl;
 			cout << "Name    : " << E.DName << endl;
 			cout << "Vehicle : " << E.DriverVehicle << endl;
@@ -321,9 +318,9 @@ int display()
 		break;
 	}
 
-	DriverNum++;
+	DriverNum++; // increments Driver Num by 1
 
-	}while(DriverNum!=DriverRequest);
+	}while(DriverNum!=DriverRequest); // Ends do while when DriverNum is equal to DriverRequest
 
 	return 0;
 }
