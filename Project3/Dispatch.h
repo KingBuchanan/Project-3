@@ -10,7 +10,7 @@
 using namespace std;
 const int times[18]={800,830,900,930,1000,1030,1100,1130,1200,1300,1330,1400,1430,1500,1530,1600,1630,1700};
 int customer_position;
-struct Driver{
+struct Driver{ // DRIVER STRUCTURE VERY IMPORTANT
 	string DName;
 	int startDriver;
 	int endDriver;
@@ -93,7 +93,7 @@ int create(){
 		create();
 	}
 
-	switch(startTime)
+	switch(startTime) // Relates the inputted time to a postion in the array
 	{
 	case 800:
 		position=0;
@@ -153,6 +153,8 @@ int create(){
 		position=18;
 		break;
 	};
+	//CHECK IF VEHICLE MATCHES ANY OF THE VEHICLES IN EACH OBJECT 
+	//If not display that there is no space available.
 	if (A.DriverVehicle==Vehicle){
 		if ((position>=A.start_position)&&(position<=A.end_position)){
 			if(A.availability[position]!=A.max_value){
@@ -217,6 +219,9 @@ int create(){
 		}
 		else
 			cout<<"Space Unavailable."<<endl;
+	}
+	if ((A.DriverVehicle != Vehicle) && (B.DriverVehicle != Vehicle) && (C.DriverVehicle != Vehicle) && (D.DriverVehicle != Vehicle) && (D.DriverVehicle != Vehicle)) {
+		cout << "Space Unavailable. Try Again" << endl;
 	}
 
 	return 0;
